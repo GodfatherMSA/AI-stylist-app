@@ -1,12 +1,12 @@
 import React, { createContext, useState, useContext } from 'react';
 
-// Sepetteki ürünün kimliği
+// Sepetteki ürün
 export interface Urun {
   id: string;
-  resim: string; // URL veya base64
-  baslik: string; // "Mavi Baggy Jean" vb.
-  fiyat: number; // Rastgele fiyat ekleriz havalı dursun
-  öneriler: any[]; // Yapay zekadan gelen o meşhur liste
+  resim: string;
+  baslik: string;
+  fiyat: number;
+  öneriler: any[];
 }
 
 interface SepetContextType {

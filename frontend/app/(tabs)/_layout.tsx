@@ -5,7 +5,7 @@ export default function TabLayout() {
   return (
     <Tabs screenOptions={{ tabBarActiveTintColor: '#F27A1A' }}>
       
-      {/* 1. ASİSTAN (ESKİ HOME) */}
+      {/*ASİSTAN*/}
       <Tabs.Screen
         name="index"
         options={{
@@ -15,7 +15,7 @@ export default function TabLayout() {
         }}
       />
 
-      {/* 2. MAĞAZA (YENİ VİTRİN) */}
+      {/*MAĞAZA*/}
       <Tabs.Screen
         name="magaza"
         options={{
@@ -25,7 +25,7 @@ export default function TabLayout() {
         }}
       />
 
-      {/* 3. SEPETİM */}
+      {/*SEPETİM */}
       <Tabs.Screen
         name="cart"
         options={{

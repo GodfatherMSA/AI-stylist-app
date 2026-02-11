@@ -4,7 +4,7 @@ import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios';
 import { Ionicons } from '@expo/vector-icons';
 
-// ↓↓↓ IP ADRESİNİ YAZ ↓↓↓
+//IP ADRESİ
 const BILGISAYAR_IP = "192.168.1.XXX"; 
 
 export default function HomeScreen() {
@@ -112,7 +112,7 @@ export default function HomeScreen() {
     </View>
   );
 }
-// STYLES (Aynısı)
+// STYLES
 const styles = StyleSheet.create({
   anaKapsayici: { flex: 1, backgroundColor: '#fafafa' },
   header: { height: 90, backgroundColor: '#F27A1A', justifyContent: 'flex-end', paddingBottom: 15, alignItems: 'center', elevation: 5 },

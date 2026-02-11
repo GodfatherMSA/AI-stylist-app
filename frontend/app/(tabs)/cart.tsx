@@ -24,12 +24,12 @@ export default function CartScreen() {
           
           {/* ÜRÜN BİLGİSİ */}
           <View style={styles.productRow}>
-            {/* ↓↓↓ DÜZELTME BURADA YAPILDI ↓↓↓ */}
+            {}
             <Image 
               source={typeof urun.resim === 'string' ? { uri: urun.resim } : urun.resim} 
               style={styles.image} 
             />
-            {/* ↑↑↑ ARTIK HEM LİNK HEM YEREL DOSYA ÇALIŞIR ↑↑↑ */}
+            {}
 
             <View style={styles.info}>
               <Text style={styles.title}>{urun.baslik}</Text>
@@ -40,7 +40,7 @@ export default function CartScreen() {
             </TouchableOpacity>
           </View>
 
-          {/* ✨ YAPAY ZEKA ÖNERİLERİ (Burası Sihirli Kısım) */}
+          {/* Yapay zeka önerileri */}
           <View style={styles.aiSection}>
             <View style={styles.aiHeader}>
               <Ionicons name="sparkles" size={16} color="#8a2be2" />

@@ -6,3 +6,5 @@ __pycache__/
 # Şifre Dosyaları (BUNLAR GİTHUB'A GİTMEYECEK)
 .env
 .DS_Store
+venv/
+backend/venv/

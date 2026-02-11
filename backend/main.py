@@ -22,23 +22,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- GEMINI AYARLARI ---
 api_key = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=api_key)
 
-# --- MODEL LİSTESİ (TAM İSABET) ---
-# Senin bulduğun doğru isim en tepede!
+# MODEL LİST
 MODELLER = [
-    "gemini-3-flash-preview",  # 1. HEDEF: Senin kanıtladığın doğru isim!
-    "gemini-2.5-flash",        # 2. HEDEF: Sağlam Yedek
-    "gemini-2.5-flash-lite"    # 3. HEDEF: Hızlı Yedek
+    "gemini-3-flash-preview",
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite"
 ]
 
 class LinkIstegi(BaseModel):
     link: str
     cinsiyet_tercihi: str
 
-# --- PROMPT ---
 def prompt_hazirla(kullanici_cinsiyeti, urun_metni=""):
     
     metin_kaniti = ""
@@ -112,7 +109,7 @@ def prompt_hazirla(kullanici_cinsiyeti, urun_metni=""):
     }}
     """
 
-# --- ZEKİ MODEL DEĞİŞTİRİCİ ---
+# Model değiştirici: model hakkı bitmişse veya hata vermişse otomatik sıradakine geçer.
 def gemini_analiz_et(image, cinsiyet, urun_metni=""):
     
     for model_ismi in MODELLER:

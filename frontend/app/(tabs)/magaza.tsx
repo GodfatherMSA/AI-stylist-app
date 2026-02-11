@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, ScrollView, Alert, TouchableOpacity, Tex
 import axios from 'axios';
 import { useSepet } from '../../context/SepetContext'; 
 
-// ↓↓↓ IP ADRESİNİ KONTROL ET ↓↓↓
+//IP ADRESİ
 const BILGISAYAR_IP = "192.168.1.XXX"; 
 
 const HAZIR_URUNLER = [
@@ -55,10 +55,10 @@ export default function MagazaScreen() {
   const { sepeteEkle } = useSepet();
   const [linkInput, setLinkInput] = useState("");
   
-  // DÜZELTME 1: Hem sayı (ID) hem yazı ("link_btn") alabilsin diye tipini genişlettik
+  //Hem sayı hem yazı
   const [yukleniyorId, setYukleniyorId] = useState<string | number | null>(null);
 
-  // --- 1. LİNK İLE EKLEME (DÜZELTİLDİ) ---
+  // Link ile ekleme
   const linkleSepeteEkle = async () => {
     if (!linkInput.includes("trendyol") && !linkInput.includes("ty.gl")) { 
         Alert.alert("Hata", "Geçerli bir Trendyol linki giriniz."); return; 
@@ -68,8 +68,6 @@ export default function MagazaScreen() {
     try {
       const response = await axios.post(`http://${BILGISAYAR_IP}:8000/analiz-link`, {
         link: linkInput,
-        // ESKİSİ: cinsiyet_tercihi: 'Kadin' (HATA BURADAYDI)
-        // YENİSİ: 'Genel' (Artık her şeyi kabul eder)
         cinsiyet_tercihi: 'Genel' 
       });
       const veri = response.data;
@@ -80,7 +78,7 @@ export default function MagazaScreen() {
         sepeteEkle({
           id: Date.now().toString(),
           baslik: veri.secilen_urun,
-          // Burada temsili bir resim kullanıyoruz linkler için, istersen backendden dönen resmi de kullanabiliriz ileride
+          //temsili resim
           resim: "https://cdn.dsmcdn.com/mnresize/1200/1800/ty995/product/media/images/20230825/16/426034638/100555678/1/1_org_zoom.jpg", 
           fiyat: 499.99,
           öneriler: veri.oneri_kategorileri
@@ -92,8 +90,6 @@ export default function MagazaScreen() {
     finally { setYukleniyorId(null); }
   };
 
-  // --- 2. GÖRSEL ANALİZLİ EKLEME ---
-  // DÜZELTME 2: 'item' parametresine 'any' diyerek TypeScript'i susturduk
   const hazirUrunuEkle = async (item: any) => {
     setYukleniyorId(item.id); 
     
@@ -103,7 +99,6 @@ export default function MagazaScreen() {
 
       const formData = new FormData();
       
-      // DÜZELTME 3: Objenin sonuna 'as any' ekledik. React Native bunu anlar ama TS anlamazdı, şimdi anlıyor.
       formData.append('file', {
         uri: imageUri,
         name: 'urun.png',
