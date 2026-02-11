@@ -1,0 +1,8 @@
+# Gereksiz Klasörler
+node_modules/
+__pycache__/
+.expo/
+
+# Şifre Dosyaları (BUNLAR GİTHUB'A GİTMEYECEK)
+.env
+.DS_Store
