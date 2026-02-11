@@ -1,5 +1,9 @@
 # AI-Powered Personal Stylist (Trendyol Case Study)
 
+
+https://github.com/user-attachments/assets/31c34fa4-8c51-4f83-8eaa-090248229286
+
+
 > **"Turning single purchases into full outfits with Generative AI."**
 
 This project is a Proof of Concept (PoC) mobile application that acts as a **Personal AI Stylist** for e-commerce platforms. Using **Google Gemini Vision AI**, it analyzes product images (from gallery or URL) and generates real-time, style-aware outfit recommendations to increase the **Average Order Value (AOV)** and improve user experience.
