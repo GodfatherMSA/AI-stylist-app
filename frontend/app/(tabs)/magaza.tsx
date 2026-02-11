@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Image, ScrollView, Alert, TouchableOpacity, Tex
 import axios from 'axios';
 import { useSepet } from '../../context/SepetContext'; 
 
-//IP ADRESİ
 const BILGISAYAR_IP = "192.168.1.XXX"; 
 
 const HAZIR_URUNLER = [
@@ -55,10 +54,8 @@ export default function MagazaScreen() {
   const { sepeteEkle } = useSepet();
   const [linkInput, setLinkInput] = useState("");
   
-  //Hem sayı hem yazı
   const [yukleniyorId, setYukleniyorId] = useState<string | number | null>(null);
 
-  // Link ile ekleme
   const linkleSepeteEkle = async () => {
     if (!linkInput.includes("trendyol") && !linkInput.includes("ty.gl")) { 
         Alert.alert("Hata", "Geçerli bir Trendyol linki giriniz."); return; 
